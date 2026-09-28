@@ -581,6 +581,181 @@ body.intro-lock{overflow:hidden}
 }
 </style>
 
+
+<style>
+.osi-intro{color:var(--muted);max-width:820px;line-height:1.75;margin:8px 0 22px}
+.osi-stack{display:grid;gap:10px;margin-top:18px}
+.osi-layer{display:grid;grid-template-columns:78px 1fr auto;align-items:center;gap:16px;padding:16px 18px;border:1px solid rgba(0,217,255,.12);border-radius:16px;background:linear-gradient(90deg,rgba(0,217,255,.045),rgba(139,92,246,.035));transition:.25s ease;cursor:default}
+.osi-layer:hover{transform:translateX(6px);border-color:rgba(0,217,255,.38);box-shadow:0 10px 35px rgba(0,0,0,.18)}
+.osi-num{font:800 11px "JetBrains Mono",monospace;letter-spacing:.16em;color:var(--accent)}
+.osi-main strong{display:block;font-size:16px;margin-bottom:4px}
+.osi-main span{color:var(--muted);font-size:13px;line-height:1.6}
+.osi-pdu{font:700 11px "JetBrains Mono",monospace;color:#c4b5fd;white-space:nowrap}
+.osi-bottom{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+.osi-note{padding:15px 17px;border:1px solid rgba(139,92,246,.16);border-radius:15px;background:rgba(139,92,246,.04)}
+.osi-note b{display:block;margin-bottom:5px}
+.osi-note span{color:var(--muted);font-size:13px;line-height:1.65}
+@media(max-width:620px){.osi-layer{grid-template-columns:58px 1fr;gap:10px}.osi-pdu{grid-column:2}.osi-bottom{grid-template-columns:1fr}}
+</style>
+
+
+<style id="mobile-responsive-fix">
+/* Mobile / tablet responsive enhancement */
+html { overflow-x: hidden; }
+body { max-width: 100%; overflow-x: hidden; }
+
+img, svg, video, canvas, iframe { max-width: 100%; height: auto; }
+
+pre, code {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+table {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 900px) {
+  .container, .wrapper, .content, .section, .hero, main {
+    max-width: 100% !important;
+  }
+
+  .grid, .cards, .labs-grid, .skills-grid, .stats-grid, .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-content, .hero-inner, .about-grid, .contact-content {
+    grid-template-columns: 1fr !important;
+  }
+
+  nav, .navbar, .nav-container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  body {
+    font-size: 15px !important;
+  }
+
+  header, .hero, section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .container, .wrapper, .content, main {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 11vw, 3.5rem) !important;
+    line-height: 1.05 !important;
+  }
+
+  h2 {
+    font-size: clamp(1.45rem, 7vw, 2.2rem) !important;
+    line-height: 1.15 !important;
+  }
+
+  h3 {
+    font-size: 1.1rem !important;
+  }
+
+  p, li {
+    overflow-wrap: anywhere;
+  }
+
+  .nav-links, nav ul, .navbar ul {
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+  }
+
+  .nav-links a, nav a, .navbar a {
+    font-size: 0.85rem !important;
+  }
+
+  .card, .lab-card, .skill-card, .project-card, .contact-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .btn, button, a.button, .cta {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    white-space: normal !important;
+  }
+
+  .timeline, .timeline-item {
+    margin-left: 0 !important;
+    padding-left: 12px !important;
+  }
+
+  .osi-model, .osi-layers, .osi-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .packet-path, .path, .packet-replay {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .terminal, .code-block, .config-viewer {
+    font-size: 0.78rem !important;
+    overflow-x: auto !important;
+    white-space: pre-wrap !important;
+    overflow-wrap: anywhere !important;
+  }
+}
+
+@media (max-width: 480px) {
+  header, .hero, section {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .nav-links, nav ul, .navbar ul {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .nav-links a, nav a, .navbar a {
+    padding: 6px 7px !important;
+    font-size: 0.78rem !important;
+  }
+
+  .stats, .stat-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .stat {
+    min-width: 0 !important;
+  }
+
+  .profile-image, .avatar {
+    width: min(70vw, 260px) !important;
+    height: auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .modal, .popup, .firewall-modal {
+    width: calc(100vw - 24px) !important;
+    max-width: calc(100vw - 24px) !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+  }
+}
+</style>
+
 </head>
 <body>
 
@@ -607,7 +782,7 @@ body.intro-lock{overflow:hidden}
   <div class="hero-orbit hero-orbit-a"></div>
   <div class="hero-orbit hero-orbit-b"></div>
   <nav aria-label="Sections" class="main-nav">
-    <a href="#home">Home</a><a href="#profile">Profile</a><a href="#labs">Labs</a><a href="#firewall">Firewall</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+    <a href="#home">Home</a><a href="#profile">Profile</a><a href="#labs">Labs</a><a href="#firewall">Firewall</a><a href="#osi">OSI Model</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
   </nav>
 
   <div class="hero-grid">
@@ -622,7 +797,7 @@ body.intro-lock{overflow:hidden}
         <a class="hero-btn ghost" href="#contact">Get in touch <span>→</span></a>
       </div>
       <div class="hero-stats" aria-label="Portfolio highlights">
-        <span><b>05</b> Networking labs</span>
+        <span><b>06</b> Networking labs</span>
         <span><b>03</b> Routing protocols</span>
         <span><b>01</b> Interactive portfolio</span>
       </div>
@@ -1071,6 +1246,24 @@ Laptop2  192.168.3.11 /24   Gateway 192.168.3.1</pre>
 </details>
 
 <p class="lab-note"><b>Portfolio note:</b> the uploaded <code>Firewall System.pkt</code> was inspected directly. Its stored ASA configuration contains the three VLAN interfaces and inside DHCP, but no configured ACL entries. The “completed” configuration above therefore adds the missing NAT object for an upstream/Internet scenario while preserving the ASA’s default trust-zone behavior. The interactive demo now shows an allowed Inside → Outside flow and a separate Outside → DMZ packet that stops at the firewall boundary and is marked <b>BLOCKED</b>. This is a portfolio policy simulation; it does not execute the Packet Tracer file in the browser.</p>
+</section>
+
+<section class="skills reveal" id="osi" aria-labelledby="osi-title">
+<h2 id="osi-title">OSI Reference Model</h2>
+<p class="osi-intro">A practical 7-layer reference for understanding how data moves through a network. This section connects the theory to the routing, switching, VLAN, WAN and troubleshooting work shown in the labs.</p>
+<div class="osi-stack">
+  <div class="osi-layer"><div class="osi-num">LAYER 7</div><div class="osi-main"><strong>Application</strong><span>Network services used by applications — HTTP/HTTPS, DNS, DHCP, SMTP and SSH.</span></div><div class="osi-pdu">DATA</div></div>
+  <div class="osi-layer"><div class="osi-num">LAYER 6</div><div class="osi-main"><strong>Presentation</strong><span>Data representation, encoding, encryption and compression.</span></div><div class="osi-pdu">DATA</div></div>
+  <div class="osi-layer"><div class="osi-num">LAYER 5</div><div class="osi-main"><strong>Session</strong><span>Establishes, manages and terminates communication sessions between applications.</span></div><div class="osi-pdu">DATA</div></div>
+  <div class="osi-layer"><div class="osi-num">LAYER 4</div><div class="osi-main"><strong>Transport</strong><span>End-to-end delivery, reliability, flow control and port numbers — TCP and UDP.</span></div><div class="osi-pdu">SEGMENT / DATAGRAM</div></div>
+  <div class="osi-layer"><div class="osi-num">LAYER 3</div><div class="osi-main"><strong>Network</strong><span>Logical addressing and routing between networks — IPv4, subnets, routers and routing protocols.</span></div><div class="osi-pdu">PACKET</div></div>
+  <div class="osi-layer"><div class="osi-num">LAYER 2</div><div class="osi-main"><strong>Data Link</strong><span>Frames, MAC addresses, Ethernet switching and VLANs; switches operate primarily here.</span></div><div class="osi-pdu">FRAME</div></div>
+  <div class="osi-layer"><div class="osi-num">LAYER 1</div><div class="osi-main"><strong>Physical</strong><span>Signals, cables, connectors, radio and the transmission of raw bits across the medium.</span></div><div class="osi-pdu">BITS</div></div>
+</div>
+<div class="osi-bottom">
+  <div class="osi-note"><b>Encapsulation</b><span>As data moves down the stack, each layer adds its own control information. At the receiver, the process is reversed through decapsulation.</span></div>
+  <div class="osi-note"><b>Troubleshooting approach</b><span>Start with the physical link, then check switching/VLANs, IP addressing and routing, transport ports, and finally the application service.</span></div>
+</div>
 </section>
 
 <section class="skills reveal" id="skills" aria-labelledby="sk">
